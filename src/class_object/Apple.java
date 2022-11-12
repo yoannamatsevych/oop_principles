@@ -9,8 +9,17 @@ public class Apple {
 
         // each time you created a new object this block will be executed
 
-        System.out.println("This is the default constructor");
+       // System.out.println("This is the default constructor");
     }
+
+    // Overloading constructor with 3 args
+
+    public Apple(String color, double price, String taste) {
+        this.color = color;
+        this.price = price;
+        this.taste = taste;
+    }
+
 
     //instance variable - fields - states - attributes
 
@@ -26,4 +35,6 @@ public class Apple {
                 ", taste='" + taste + '\'' +
                 '}';
     }
+
+
 }
