@@ -1,6 +1,7 @@
 package class_object;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class CarTest {
     public static void main(String[] args) {
@@ -49,8 +50,25 @@ public class CarTest {
         Count all the cars that are Blue or Beige or 2023 ->
          */
 
+        int count = 0;
+
+        for (Car car : cars){
+            if (car.color.equalsIgnoreCase("Blue")
+                    || car.color.equalsIgnoreCase("Beige") ||
+            car.year == 2023) count++;
+        }
+        System.out.println(count);
+
+
         /*
         Remove al the cars that are Tesla and size should be three
          */
+        Iterator<Car> carIterator = cars.iterator();
+
+        while(carIterator.hasNext()){
+            Car c = carIterator.next();
+            if(c.make.equalsIgnoreCase("Tesla")) carIterator.remove();
+        }
+        System.out.println(cars.size());
     }
 }
