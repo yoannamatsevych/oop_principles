@@ -10,8 +10,10 @@ public class Car {
 
     //Create a 5args overloaded constructor
 
-    public Car(String color, String make, String model, int year, double price) {
-        this.color = color; // if we will put "Red"  it always  will "red"
+    public Car(String color, String make,
+               String model, int year, double price) {
+        this.color = color; // if we will put "Red"  it a
+        // lways  will "red"
         this.make = make;
         this.model = model;
         this.year = year;

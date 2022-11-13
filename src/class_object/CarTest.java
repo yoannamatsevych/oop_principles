@@ -63,12 +63,17 @@ public class CarTest {
         /*
         Remove al the cars that are Tesla and size should be three
          */
-        Iterator<Car> carIterator = cars.iterator();
+//        Iterator<Car> carIterator = cars.iterator();
+//
+//        while(carIterator.hasNext()){
+//            Car c = carIterator.next();
+//            if(c.make.equalsIgnoreCase("Tesla")) carIterator.remove();
+//        }
+//        System.out.println(cars.size());
 
-        while(carIterator.hasNext()){
-            Car c = carIterator.next();
-            if(c.make.equalsIgnoreCase("Tesla")) carIterator.remove();
-        }
+        cars.removeIf(car -> car.make.equalsIgnoreCase("Tesla"));
+
         System.out.println(cars.size());
+
     }
 }
