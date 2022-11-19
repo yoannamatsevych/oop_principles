@@ -16,14 +16,14 @@ public class Animal {
     }
 
     public Animal(String name, int age ){
-        System.out.println("This is 2-args constractor");
+
         this.name = name;
         this.age = age;
     }
 
     public Animal(String name, int age, boolean isCarnivore, boolean isHerbivore, boolean isOmnivore) {
         this(name, age); // has to be first, so we can use only one inner object
-        System.out.println("This is 5 args constructor");
+
 
         this.isCarnivore = isCarnivore;
         this.isHerbivore = isHerbivore;
@@ -44,6 +44,14 @@ public class Animal {
 
         return result;
 
+    }
+
+
+    // Execute the code below whenever an Animal object is garbage  collected
+    // You will override finalize() method if you would like to execute a block of code after your object is destroyed
+    @Override
+    protected void finalize() throws Throwable {
+        System.out.println(getClass().getName() + " " + this.name + " object is destroyed");
     }
 
     public static void main(String[] args) {
