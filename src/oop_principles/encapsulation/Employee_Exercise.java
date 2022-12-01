@@ -91,12 +91,28 @@ public class Employee_Exercise {
                         else if (employee.getCompany().getName().equals("US Bank")) usbankEmployee++;
                         else if (employee.getCompany().getName().equals("Verizon")) verizonEmployees++;
 
-                        if(employee.getJobPosition().equals("Tester")) testerPosition++;
-                        else if (employee.getJobPosition().equals("Developer")) developerPosition++;
-                        else if (employee.getJobPosition().equals("Manager")) managerPosition++;
-                        else if (employee.getJobPosition().equals("System Architect")) saPosition++;
-                        else if (employee.getJobPosition().equals("Designer")) designerPosition++;
-                        else if (employee.getJobPosition().equals("Scrum Master")) scrumMusterPosition++;
+                        switch (employee.getJobPosition()) {
+                                case "Tester":
+                                        testerPosition++;
+                                        break;
+                                case "Developer":
+                                        developerPosition++;
+                                        break;
+                                case "Manager":
+                                        managerPosition++;
+                                        managerEmployee = employee;
+                                        break;
+                                case "System Architect":
+                                        saPosition++;
+                                        systemArchitectEmployee = employee;
+                                        break;
+                                case "Designer":
+                                        designerPosition++;
+                                        break;
+                                case "Scrum Master":
+                                        scrumMusterPosition++;
+                                        scrumMasterEmployee = employee;
+                        }
 
                         testerYoungest = employees.stream().filter(e -> e.getJobPosition().equals("Tester")).
                                 min(Comparator.comparingInt(Employee::getAge)).get();
@@ -104,10 +120,10 @@ public class Employee_Exercise {
                                 min(Comparator.comparingInt(Employee::getAge)).get();
                         designerYoungest = employees.stream().filter(e -> e.getJobPosition().equals("Designer")).
                                 min(Comparator.comparingInt(Employee::getAge)).get();
-
-                        if (employee.getJobPosition().equals("Manager")) managerEmployee = employee;
-                        else if (employee.getJobPosition().equals("System Architect")) systemArchitectEmployee = employee;
-                        else if (employee.getJobPosition().equals("Scrum Master")) scrumMasterEmployee = employee;
+//
+//                        if (employee.getJobPosition().equals("Manager")) managerEmployee = employee;
+//                        else if (employee.getJobPosition().equals("System Architect")) systemArchitectEmployee = employee;
+//                        else if (employee.getJobPosition().equals("Scrum Master")) scrumMasterEmployee = employee;
 
 
                 }
