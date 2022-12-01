@@ -18,6 +18,7 @@ public class Animal {
         this.isExtinct = isExtinct;
     }
 
+
     public String name;
     public int age;
     public double height;
@@ -25,22 +26,64 @@ public class Animal {
     public String diet; // carnivore, omnivore, herbivore
     public boolean isAlive;
     public boolean isExtinct;
+    private String gender;
+
+    public String getGender(String password) {
+        switch(password){
+            case "12345":
+                return gender;
+        }
+        return "Your password is wrong";
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 
     public void eat(String food){
+        switch(food){
+            case "meat":
+            case "animal":
+            case "human":
+                diet = "carnivore";
+                System.out.println(name + " is carnivore now!");
+                break;
+            case "lettuce":
+            case "grass":
+            case "plant":
+            case "leaves":
+                diet = "herbivore";
+                System.out.println(name + " is herbivore now!");
+                break;
+            default:
+                System.out.println("We don't have diet type for this food");
+        }
         System.out.println(name + " is eating " + food);
     }
 
     public void breath(String type){
-        switch(type){
-            case "Gills":
-                System.out.println(name + "is water breathing");
-                break;
-            case "Lungs":
-                System.out.println(name + " is ait breathing");
-            default:
-                System.out.println(name + " is breathing with a unique way");
+        if (!isAlive || isExtinct){
+            System.out.println(name + " cannot breath!");
+        }else {
+            switch (type) {
+                case "Gills":
+                    System.out.println(name + "is water breathing");
+                    break;
+                case "Lungs":
+                    System.out.println(name + " is air breathing");
+                    break;
+                default:
+                    System.out.println(name + " is breathing with a unique way");
+            }
         }
     }
+
+    public double attack(){
+        double damage = height * weight;
+        System.out.println(name + " is attacking. It damaged \"" + damage + "\".");
+        return damage;
+    }
+
 
 
     @Override
@@ -65,8 +108,12 @@ public class Animal {
         Animal animal = new Animal("Trex", 5, 7.4, 400.2, "carnivore", false, true);
         System.out.println(animal);
 
-        animal.eat("another animal");
-        animal.eat("lungs");
+        animal.eat("leaves");
+        animal.breath("lungs");
+        animal.attack();
 
+
+      animal.setGender("Male");
+        System.out.println(animal.getGender("123"));
     }
 }
