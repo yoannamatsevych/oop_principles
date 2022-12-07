@@ -2,6 +2,7 @@ package oop_principles.abstraction;
 
 public interface Camera {
 
+    String color = "Black";
     void takesPhoto();
     void recordVideo();
 
